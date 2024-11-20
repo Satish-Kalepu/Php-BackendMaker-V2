@@ -1,0 +1,27 @@
+version: "3"
+
+services:
+  web:
+    container_name: phpengine_app
+    image: satishkalepu/amazon-apache-php82
+    environment:
+      ENGINE_MODE: docker
+    ports:
+      - "8888:80"
+    volumes:
+      - .:/var/www/html/
+
+  mongo:
+    container_name: phpengine_db
+    image: mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: stage
+      MONGO_INITDB_ROOT_PASSWORD: stage 
+    ports:
+      - "27017:27017"
+
+  redis:
+    container_name: phpengine_redis
+    image: redis
+    ports:
+      - "6379:6379"
