@@ -9,7 +9,9 @@ services:
     ports:
       - "8888:80"
     volumes:
-      - .:/var/www/html/
+      - .src/:/var/www/html/
+      - .config_global_apimaker.php/:/var/www/.config_global_apimaker.php
+      - .config_global_engine.php/:/var/www/.config_global_engine.php
 
   mongo:
     container_name: phpengine_db
